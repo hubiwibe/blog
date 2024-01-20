@@ -1,30 +1,29 @@
+import { Post } from '@/service/posts';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-export interface PostCardProps {
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  path: string;
-  featured: boolean;
-}
+type Props = {
+  post: Post;
+};
 
-function PostCard({ title, description, date, category, path, featured }: PostCardProps) {
+function PostCard({ post: { title, description, date, category, path, featured } }: Props) {
   return (
-    <div className="flex flex-col max-w-xs rounded-lg shadow-lg max-h-80">
-      <div className="relative w-full h-48 overflow-hidden rounded-t-lg">
-        <Image src="/images/profile.png" alt="포스트 이미지" fill objectFit="cover" />
-      </div>
-      <div className="flex flex-col items-center p-2 text-sm gap-y-1">
-        <p className="w-full text-right">{date}</p>
-        <p className="text-lg font-bold">{title}</p>
-        <p className="w-full overflow-hidden break-words text-ellipsis line-clamp-2">
-          {description.concat(description).concat(description)}
-        </p>
-        <div className="px-2 bg-green-100 rounded-md">{category}</div>
-      </div>
-    </div>
+    <Link href={`posts/${path}`}>
+      <article className="flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+        <div className="relative w-full h-48 overflow-hidden rounded-t-lg">
+          <Image src={`/images/posts/${path}.png`} alt="포스트 이미지" fill objectFit="cover" />
+        </div>
+        <div className="flex flex-col items-center p-2 text-sm gap-y-1">
+          <time className="self-end">{date.toString()}</time>
+          <h3 className="text-lg font-bold">{title}</h3>
+          <p className="w-full overflow-hidden break-words text-ellipsis line-clamp-2">
+            {description.concat(description).concat(description)}
+          </p>
+          <span className="px-2 bg-green-100 rounded-md">{category}</span>
+        </div>
+      </article>
+    </Link>
   );
 }
 
