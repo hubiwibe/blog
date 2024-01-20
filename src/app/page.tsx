@@ -1,4 +1,4 @@
-import PostCards from '@/components/PostCards';
+import FeaturedPosts from '@/components/FeaturedPosts';
 import Profile from '@/components/Profile';
 
 export default function HomePage() {
@@ -6,7 +6,7 @@ export default function HomePage() {
     <section className="py-5">
       <Profile />
       <div className="h-8" />
-      <PostCards />
+      <FeaturedPosts />
     </section>
   );
 }
