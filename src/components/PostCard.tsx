@@ -10,12 +10,12 @@ type Props = {
 function PostCard({ post: { title, description, date, category, path, featured } }: Props) {
   return (
     <Link href={`posts/${path}`}>
-      <article className="flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+      <article className="flex flex-col rounded-lg shadow-md hover:shadow-xl">
         <div className="relative w-full h-48 overflow-hidden rounded-t-lg">
-          <Image src={`/images/posts/${path}.png`} alt="포스트 이미지" fill objectFit="cover" />
+          <Image src={`/images/posts/${path}.png`} alt="포스트 이미지" fill sizes="100%" />
         </div>
         <div className="flex flex-col items-center p-2 text-sm gap-y-1">
-          <time className="self-end">{date.toString()}</time>
+          <time className="self-end text-gray-400">{date.toString()}</time>
           <h3 className="text-lg font-bold">{title}</h3>
           <p className="w-full overflow-hidden break-words text-ellipsis line-clamp-2">
             {description.concat(description).concat(description)}
