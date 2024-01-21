@@ -14,7 +14,8 @@ function PostsSwiper({ posts }: { posts: Post[] }) {
   return (
     <Swiper
       loop={true}
-      spaceBetween={16}
+      spaceBetween={12}
+      style={{ paddingBottom: 8 }}
       slidesPerView={3.5}
       autoplay={{
         delay: 2000,
