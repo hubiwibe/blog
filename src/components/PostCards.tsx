@@ -8,7 +8,7 @@ type Props = {
 
 function PostCards({ posts }: Props) {
   return (
-    <div className="grid grid-cols-1 gap-3 px-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {posts.map((post: Post, idx: number) => (
         <PostCard key={`post${idx + 1}`} post={post} />
       ))}
