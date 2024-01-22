@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <section className="flex flex-col mx-auto max-w-screen-2xl">
           <Header />
-          <main className="grow">{children}</main>
+          <main className="grow min-h-[calc(100vh-116px)] px-5">{children}</main>
         </section>
         <Footer />
       </body>
