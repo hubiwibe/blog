@@ -8,7 +8,7 @@ export default async function PostsPage() {
 
   return (
     <div className="flex pb-4">
-      <PostsTemplate posts={posts} categories={['All posts', ...categories.values()]} />
+      <PostsTemplate posts={posts} categories={[...categories]} />
     </div>
   );
 }

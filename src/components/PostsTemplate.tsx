@@ -9,11 +9,15 @@ type PostsTemplateProps = {
   categories: string[];
 };
 
+const ALL_POSTS = 'All posts';
+
 function PostsTemplate({ posts, categories }: PostsTemplateProps) {
+  const [selectedCategory, setSelectedCategory] = React.useState(ALL_POSTS);
   const [categoryPosts, setCategoryPosts] = React.useState(posts);
 
   const handleCategory = (category: string) => {
-    setCategoryPosts(category === 'All posts' ? posts : posts.filter(post => post.category === category));
+    setSelectedCategory(category);
+    setCategoryPosts(category === ALL_POSTS ? posts : posts.filter(post => post.category === category));
   };
 
   return (
@@ -22,7 +26,11 @@ function PostsTemplate({ posts, categories }: PostsTemplateProps) {
         <PostCards posts={categoryPosts} />
       </section>
       <aside className="mx-3 ">
-        <CategoryChanger categories={categories} onChangeCategory={handleCategory} />
+        <CategoryChanger
+          categories={[ALL_POSTS, ...categories]}
+          selectedCategory={selectedCategory}
+          onChangeCategory={handleCategory}
+        />
       </aside>
     </>
   );
