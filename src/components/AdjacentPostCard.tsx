@@ -12,7 +12,7 @@ function AdjacentPostCard({ post: { path, title, description }, type }: Props) {
   return (
     <Link className="relative flex w-full h-56" href={`${path}`}>
       <Image
-        className="absolute object-cover w-full h-full"
+        className="absolute object-cover w-full h-full opacity-75"
         src={`/images/posts/${path}.png`}
         alt={title}
         width={760}
