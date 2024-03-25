@@ -14,7 +14,7 @@ function Profile() {
           술담화
         </a>
       </div>
-      <Link href="/contact">
+      <Link href="https://www.linkedin.com/in/yungi-jung-a3a491140/" target="_blank">
         <button className="px-4 py-2 mt-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">Contact Me</button>
       </Link>
     </div>
