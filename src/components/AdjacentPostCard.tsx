@@ -8,6 +8,8 @@ type Props = {
   type: 'prev' | 'next';
 };
 
+const ICON_CLS = 'w-12 h-12 text-yellow-400 transition-all group-hover:w-14 group-hover:h-14';
+
 function AdjacentPostCard({ post: { path, title, description }, type }: Props) {
   return (
     <Link className="relative flex w-full h-56" href={`${path}`}>
@@ -18,7 +20,7 @@ function AdjacentPostCard({ post: { path, title, description }, type }: Props) {
         width={760}
         height={420}
       />
-      <div className={`z-10 flex items-center justify-around ${type === 'next' ? 'w-full' : 'w-3/4'}`}>
+      <div className={`group z-10 flex items-center justify-around ${type === 'next' ? 'w-full' : 'w-3/4'}`}>
         {type === 'prev' && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +28,7 @@ function AdjacentPostCard({ post: { path, title, description }, type }: Props) {
             viewBox="0 0 24 24"
             strokeWidth={4}
             stroke="currentColor"
-            className="w-12 h-12 text-yellow-400"
+            className={ICON_CLS}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
           </svg>
@@ -42,7 +44,7 @@ function AdjacentPostCard({ post: { path, title, description }, type }: Props) {
             viewBox="0 0 24 24"
             strokeWidth={4}
             stroke="currentColor"
-            className="w-12 h-12 text-yellow-400"
+            className={ICON_CLS}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>
